@@ -1,31 +1,45 @@
+var jimp  = require("jimp");
+
 function Game(player1, player2) {
 	this.red = player1;
 	this.black = player2;
 	this.board = [
-	//0,1,2,3,4,5,6,7,8,9
-	 [e,r,e,r,e,r,e,r,e,r], //0
-	 [r,e,r,e,r,e,r,e,r,e], //1
-	 [e,r,e,r,e,r,e,r,e,r], //2
-	 [e,e,e,e,e,e,e,e,e,e], //3
-	 [e,e,e,e,e,e,e,e,e,e], //4
-	 [e,e,e,e,e,e,e,e,e,e], //5
-	 [e,e,e,e,e,e,e,e,e,e], //6
-	 [b,e,b,e,b,e,b,e,b,e], //7
-	 [e,b,e,b,e,b,e,b,e,b], //8
-	 [b,e,b,e,b,e,b,e,b,e]  //9
+	// 0 , 1 , 2 , 3 , 4 , 5 , 6 , 7 , 8 , 9
+	 ['e','r','e','r','e','r','e','r','e','r'], // 0
+	 ['r','e','r','e','r','e','r','e','r','e'], // 1
+	 ['e','r','e','r','e','r','e','r','e','r'], // 2
+	 ['e','e','e','e','e','e','e','e','e','e'], // 3
+	 ['e','e','e','e','e','e','e','e','e','e'], // 4
+	 ['e','e','e','e','e','e','e','e','e','e'], // 5
+	 ['e','e','e','e','e','e','e','e','e','e'], // 6
+	 ['b','e','b','e','b','e','b','e','b','e'], // 7
+	 ['e','b','e','b','e','b','e','b','e','b'], // 8
+	 ['b','e','b','e','b','e','b','e','b','e']  // 9
 	
 	];
 }
 
-testgame = new Game("test1","test2");
+var testgame = new Game("test1","test2");
+
+var board = new jimp.read("DraughtsBoard.png");
+var red = new jimp.read("RedDraughtsPeice.png");
+var black = new jimp.read("BlackDraughtsPeice.png");
 
 
-Promise.all([horse,test]).then(function(i){
-	board = i[1];
-	board.composite(i[0],0,0)
-	    .write("test.jpg");
-	board.composite(i[0],50,50)
-	    .write("test.jpg");
-	board.composite(i[0],100,100)
-	    .write("test.jpg");
+Promise.all([board,red,black]).then(function(i){
+	var tmpBoard = i[0];
+	
+	for(var y = 0; y <= 9; y++) {
+		for(var x = 0;x <= 9;x++) {
+			if(testgame.board[x,y] == 'r') {
+				tmpBoard.composite(i[1],x*25,y*25);
+			}
+			if(testgame.board[x,y] == 'b') {
+				tmpBoard.composite(i[2],x*25,y*25);
+			}
+			
+		}
+	}
+	
+	tmpBoard.write("newBoard.jpg");
 });
