@@ -21,9 +21,9 @@ function Game(player1, player2) {
 
 var testgame = new Game("test1","test2");
 
-var board = new jimp.read("DraughtsBoard.png");
-var red = new jimp.read("RedDraughtsPeice.png");
-var black = new jimp.read("BlackDraughtsPeice.png");
+var board = new jimp.read("Images/DraughtsBoard.png");
+var red = new jimp.read("Images/RedDraughtsPeice.png");
+var black = new jimp.read("Images/BlackDraughtsPeice.png");
 
 
 Promise.all([board,red,black]).then(function(i){
