@@ -1,0 +1,17 @@
+{
+  "name": "lincolnhack",
+  "version": "1.0.0",
+  "description": "Twitter bot for lincolnhack event",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "node-summary": "^1.1.0",
+    "node-sumuparticles": "^0.1.4",
+    "node-tldr": "^0.4.14",
+    "twitter": "^1.4.0"
+  }
+}
