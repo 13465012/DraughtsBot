@@ -126,31 +126,7 @@ function checkmove(sY,sX,eY,eX,color,king,gboard) {
 function turn(color,sY,sX,eY,eX) {
 	
 	console.log(testgame.board);
-	Promise.all([board,red,black,redKing,blackKing]).then(function(i){
-	var tmpBoard = i[0];
 	
-	
-	for(var x = 0; x <= 9; x++) {
-		for(var y = 0;y <= 9;y++) {
-			if(testgame.board[x][y] == 'r') {
-				tmpBoard.composite(i[1],y*25,x*25);
-			}
-			if(testgame.board[x][y] == 'b') {
-				tmpBoard.composite(i[2],y*25,x*25);
-			}
-			if(testgame.board[x][y] == 't') {
-				tmpBoard.composite(i[3],y*25,x*25);
-			}
-			if(testgame.board[x][y] == 'n') {
-				tmpBoard.composite(i[4],y*25,x*25);
-			}
-			
-			
-		}
-	}
-	
-	tmpBoard.write("newBoard2.jpg");
-	});
 	
 	// is unit valid?
 	var val = false;
@@ -245,7 +221,8 @@ function turn(color,sY,sX,eY,eX) {
 			
 		}
 	}
-	
+	tmpBoard.write("newBoard4.jpg");
+	});
 	// game finished(redwin)?
 	var rfin = true
 	for(var x = 0; x <= 9; x++) {
@@ -265,8 +242,8 @@ function turn(color,sY,sX,eY,eX) {
 		}
 	}
 	
-	tmpBoard.write("newBoard3.jpg");
-	});
+	
+	
 }
 
 turn('r',1,2,2,3);
