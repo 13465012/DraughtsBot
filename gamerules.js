@@ -1,4 +1,5 @@
 function Game(player1, player2) {
+	this.color = 'r';
 	this.red = player1;
 	this.black = player2;
 	this.board = [
@@ -242,6 +243,25 @@ function turn(color,sY,sX,eY,eX) {
 			}
 			
 			
+		}
+	}
+	
+	// game finished(redwin)?
+	var rfin = true
+	for(var x = 0; x <= 9; x++) {
+		for(var y = 0;y <= 9;y++) {
+			if(testgame.board[x][y] == 'r' || testgame.board[x][y] == 't') {
+				rfin = false;
+			} 
+		}
+	}
+	// game finished(blackwin)?
+	var bfin = true
+	for(var x = 0; x <= 9; x++) {
+		for(var y = 0;y <= 9;y++) {
+			if(testgame.board[x][y] == 'b' || testgame.board[x][y] == 'n') {
+				bfin = false;
+			} 
 		}
 	}
 	
