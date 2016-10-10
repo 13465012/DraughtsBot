@@ -9,9 +9,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "destroy": "^1.0.4",
     "node-summary": "^1.1.0",
     "node-sumuparticles": "^0.1.4",
     "node-tldr": "^0.4.14",
+    "request": "^2.75.0",
     "twitter": "^1.4.0"
   }
 }
